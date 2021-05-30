@@ -48,6 +48,7 @@ let maxInSixDaysElement = document.querySelector("#max_in_six_days");
 let minInSixDaysElement = document.querySelector("#min_in_six_days");
 
 function showCurrentWeather(response) {
+  console.log(response.data);
   let cityName = document.querySelector("h1");
   cityName.innerHTML = response.data.name;
 

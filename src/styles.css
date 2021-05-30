@@ -17,10 +17,6 @@ h5 {
 
 small {
   display: block;
-  line-height: 0;
-  position: relative;
-  top: 35px;
-  left: -15px;
   opacity: 60%;
 }
 
@@ -68,11 +64,14 @@ ul {
   color: #146ec5;
 }
 
+.weather-app-wrapper {
+  margin: 50px auto;
+  max-width: 800px;
+}
+
 .weather-app {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
   border-radius: 2px;
-  margin: 50px auto 0;
-  max-width: 800px;
   padding: 20px;
 }
 

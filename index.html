@@ -12,175 +12,182 @@
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="row">
-          <div class="col-3">
-            <form id="search_form">
-              <input
-                type="search"
-                id="type_city"
-                class="form-control"
-                placeholder="Type city..."
-                autocomplete="off"
-                autofocus="on"
-              />
-            </form>
-          </div>
-          <div class="col-2 current-location">
-            <form id="current_location_form">
-              <input
-                type="submit"
-                id="cur_loc_btn"
-                class="btn btn-outline"
-                value="current location"
-              />
-            </form>
-          </div>
-          <div class="col-7">
-            <h1>Brussels</h1>
-          </div>
-        </div>
-        <h5>Friday 12:50</h5>
-        <br />
-        <div class="row">
-          <div class="col-2 current-state">
-            <ul>
-              <li class="current-emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="current-weather-icon"
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="row">
+            <div class="col-3">
+              <form id="search_form">
+                <input
+                  type="search"
+                  id="type_city"
+                  class="form-control"
+                  placeholder="Type city..."
+                  autocomplete="off"
+                  autofocus="on"
                 />
-              </li>
-              <li class="description">Bit good, mostly meh...</li>
-            </ul>
-          </div>
-          <div class="col-2 current-temperature">11</div>
-          <div class="col-2 current-specify">
-            <div class="row">
-              <p>
-                <a href="#" class="temp-unit celsius">°C</a>
-                <span class="thin-line">|</span>
-                <a href="#" class="temp-unit fahrenheit">°F</a>
-              </p>
+              </form>
             </div>
-            <div class="row max-and-min">
-              <p>
-                <strong><span id="max_today">12</span>°</strong>/<span
-                  id="min_today"
-                  >3</span
-                >°
-              </p>
-            </div>
-          </div>
-          <div class="col-3 current-extra">
-            <ul>
-              <li>Humidity: <span id="humidity">61</span>%</li>
-              <li>Feeling temperature: <span id="feeling_temp">10</span>°</li>
-            </ul>
-          </div>
-          <div class="col tomorrow">
-            <div class="row"><h4>Tomorrow</h4></div>
-            <div class="row">
-              <div class="col emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="tomorrow-weather-icon"
+            <div class="col-2 current-location">
+              <form id="current_location_form">
+                <input
+                  type="submit"
+                  id="cur_loc_btn"
+                  class="btn btn-outline"
+                  value="current location"
                 />
-              </div>
-              <div class="col max"><span id="max_tomorrow">14</span>°</div>
-              <div class="col min"><span id="min_tomorrow">14</span>°</div>
+              </form>
             </div>
-            <div class="row description">
-              <div class="col">chance of rainbow</div>
+            <div class="col-7">
+              <h1>Brussels</h1>
             </div>
           </div>
-        </div>
-        <hr />
-        <div class="row five-days">
-          <div class="col in-two-days">
-            <div class="row what-day"><h4>Sun</h4></div>
-            <div class="row">
-              <div class="col-6 emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="in-two-days-weather-icon"
-                />
-              </div>
-              <div class="col-6 max"><span id="max_in_two_days">14</span>°</div>
+          <h5>Friday 12:50</h5>
+          <br />
+          <div class="row">
+            <div class="col-2 current-state">
+              <ul>
+                <li class="current-emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="current-weather-icon"
+                  />
+                </li>
+                <li class="description">Bit good, mostly meh...</li>
+              </ul>
             </div>
-            <div class="row">
-              <div class="col min"><span id="min_in_two_days">5</span>°</div>
+            <div class="col-2 current-temperature">11</div>
+            <div class="col-2 current-specify">
+              <div class="row">
+                <p>
+                  <a href="#" class="temp-unit celsius">°C</a>
+                  <span class="thin-line">|</span>
+                  <a href="#" class="temp-unit fahrenheit">°F</a>
+                </p>
+              </div>
+              <div class="row max-and-min">
+                <p>
+                  <strong><span id="max_today">12</span>°</strong>/<span
+                    id="min_today"
+                    >3</span
+                  >°
+                </p>
+              </div>
+            </div>
+            <div class="col-3 current-extra">
+              <ul>
+                <li>Humidity: <span id="humidity">61</span>%</li>
+                <li>Feeling temperature: <span id="feeling_temp">10</span>°</li>
+              </ul>
+            </div>
+            <div class="col tomorrow">
+              <div class="row"><h4>Tomorrow</h4></div>
+              <div class="row">
+                <div class="col emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="tomorrow-weather-icon"
+                  />
+                </div>
+                <div class="col max"><span id="max_tomorrow">14</span>°</div>
+                <div class="col min"><span id="min_tomorrow">14</span>°</div>
+              </div>
+              <div class="row description">
+                <div class="col">chance of rainbow</div>
+              </div>
             </div>
           </div>
-          <div class="col in-three-days">
-            <div class="row what-day"><h4>Mon</h4></div>
-            <div class="row">
-              <div class="col-6 emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="in-three-days-weather-icon"
-                />
+          <hr />
+          <div class="row five-days">
+            <div class="col in-two-days">
+              <div class="row what-day"><h4>Sun</h4></div>
+              <div class="row">
+                <div class="col-6 emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="in-two-days-weather-icon"
+                  />
+                </div>
+                <div class="col-6 max">
+                  <span id="max_in_two_days">14</span>°
+                </div>
               </div>
-              <div class="col-6 max">
-                <span id="max_in_three_days">19</span>°
-              </div>
-            </div>
-            <div class="row">
-              <div class="col min"><span id="min_in_three_days">5</span>°</div>
-            </div>
-          </div>
-          <div class="col in-four-days">
-            <div class="row what-day"><h4>Tue</h4></div>
-            <div class="row">
-              <div class="col-6 emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="in-four-days-weather-icon"
-                />
-              </div>
-              <div class="col-6 max">
-                <span id="max_in_four_days">16</span>°
+              <div class="row">
+                <div class="col min"><span id="min_in_two_days">5</span>°</div>
               </div>
             </div>
-            <div class="row">
-              <div class="col min"><span id="min_in_four_days">5</span>°</div>
-            </div>
-          </div>
-          <div class="col in-five-days">
-            <div class="row what-day"><h4>Wed</h4></div>
-            <div class="row">
-              <div class="col-6 emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="in-five-days-weather-icon"
-                />
+            <div class="col in-three-days">
+              <div class="row what-day"><h4>Mon</h4></div>
+              <div class="row">
+                <div class="col-6 emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="in-three-days-weather-icon"
+                  />
+                </div>
+                <div class="col-6 max">
+                  <span id="max_in_three_days">19</span>°
+                </div>
               </div>
-              <div class="col-6 max">
-                <span id="max_in_five_days">12</span>°
+              <div class="row">
+                <div class="col min">
+                  <span id="min_in_three_days">5</span>°
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col min"><span id="min_in_five_days">2</span>°</div>
-            </div>
-          </div>
-          <div class="col in-six-days">
-            <div class="row what-day"><h4>Thu</h4></div>
-            <div class="row">
-              <div class="col-6 emoji">
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt="in-six-days-weather-icon"
-                />
+            <div class="col in-four-days">
+              <div class="row what-day"><h4>Tue</h4></div>
+              <div class="row">
+                <div class="col-6 emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="in-four-days-weather-icon"
+                  />
+                </div>
+                <div class="col-6 max">
+                  <span id="max_in_four_days">16</span>°
+                </div>
               </div>
-              <div class="col-6 max"><span id="max_in_six_days">5</span>°</div>
+              <div class="row">
+                <div class="col min"><span id="min_in_four_days">5</span>°</div>
+              </div>
             </div>
-            <div class="row">
-              <div class="col min"><span id="min_in_six_days">-1</span>°</div>
+            <div class="col in-five-days">
+              <div class="row what-day"><h4>Wed</h4></div>
+              <div class="row">
+                <div class="col-6 emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="in-five-days-weather-icon"
+                  />
+                </div>
+                <div class="col-6 max">
+                  <span id="max_in_five_days">12</span>°
+                </div>
+              </div>
+              <div class="row">
+                <div class="col min"><span id="min_in_five_days">2</span>°</div>
+              </div>
+            </div>
+            <div class="col in-six-days">
+              <div class="row what-day"><h4>Thu</h4></div>
+              <div class="row">
+                <div class="col-6 emoji">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="in-six-days-weather-icon"
+                  />
+                </div>
+                <div class="col-6 max">
+                  <span id="max_in_six_days">5</span>°
+                </div>
+              </div>
+              <div class="row">
+                <div class="col min"><span id="min_in_six_days">-1</span>°</div>
+              </div>
             </div>
           </div>
         </div>
