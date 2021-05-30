@@ -60,23 +60,20 @@
                 <li class="description">Bit good, mostly meh...</li>
               </ul>
             </div>
-            <div class="col-2 current-temperature">11</div>
-            <div class="col-2 current-specify">
-              <div class="row">
-                <p>
-                  <a href="#" class="temp-unit celsius">°C</a>
-                  <span class="thin-line">|</span>
-                  <a href="#" class="temp-unit fahrenheit">°F</a>
-                </p>
-              </div>
-              <div class="row max-and-min">
-                <p>
-                  <strong><span id="max_today">12</span>°</strong>/<span
-                    id="min_today"
-                    >3</span
-                  >°
-                </p>
-              </div>
+            <div class="col-2 current-temperature">
+              11
+
+              <a href="#" class="temp-unit celsius">°C</a>
+              <span class="thin-line">|</span>
+              <a href="#" class="temp-unit fahrenheit">°F</a>
+            </div>
+            <div class="col-2 max-and-min">
+              <p>
+                <strong><span id="max_today">12</span>°</strong>/<span
+                  id="min_today"
+                  >3</span
+                >°
+              </p>
             </div>
             <div class="col-3 current-extra">
               <ul>
@@ -85,20 +82,23 @@
               </ul>
             </div>
             <div class="col tomorrow">
-              <div class="row"><h4>Tomorrow</h4></div>
-              <div class="row">
-                <div class="col emoji">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="tomorrow-weather-icon"
-                  />
-                </div>
-                <div class="col max"><span id="max_tomorrow">14</span>°</div>
-                <div class="col min"><span id="min_tomorrow">14</span>°</div>
-              </div>
-              <div class="row description">
-                <div class="col">chance of rainbow</div>
-              </div>
+              <ul>
+                <li><h4>Tomorrow</h4></li>
+                <li>
+                  <div class="row">
+                    <div class="col emoji">
+                      <img
+                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        alt="tomorrow-weather-icon"
+                      />
+                    </div>
+                    <div class="col max">
+                      <span id="max_tomorrow">14</span>°
+                    </div>
+                  </div>
+                </li>
+                <li><span id="min_tomorrow">4</span>°</li>
+              </ul>
             </div>
           </div>
           <hr />

@@ -1,20 +1,3 @@
-h1 {
-  color: #42a5f5;
-  font-size: 50px;
-  font-weight: 600;
-  line-height: 1;
-  margin: -5px auto 0;
-  padding: 0 10px 0 0;
-  text-align: right;
-}
-
-h5 {
-  color: #42a5f5;
-  font-weight: 400;
-  padding-right: 10px;
-  text-align: right;
-}
-
 input[type="search"] {
   border: 2px solid #146ec5;
   border-radius: 2px;
@@ -25,8 +8,25 @@ input[type="search"]:focus {
   border: 2px solid #42a5f5;
 }
 
+h1 {
+  color: #42a5f5;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1;
+  margin: -5px auto 0;
+  padding: 0 10px 0 0;
+  text-align: right;
+}
+
 h4 {
   margin: 0;
+}
+
+h5 {
+  color: #42a5f5;
+  font-weight: 400;
+  padding-right: 10px;
+  text-align: right;
 }
 
 hr {
@@ -37,28 +37,7 @@ hr {
 ul {
   list-style: none;
   padding: 0;
-}
-
-.updated {
-  color: #42a5f5;
-  display: block;
-  font-size: 14px;
-  font-weight: 200;
-  line-height: 1;
-  padding-right: 10px;
-  text-align: right;
-}
-
-.coder-info {
-  opacity: 60%;
-}
-
-.current-state ul {
-  text-align: center;
-}
-
-.current-extra ul {
-  text-align: right;
+  margin: 0;
 }
 
 #cur_loc_btn {
@@ -73,15 +52,28 @@ ul {
   color: #146ec5;
 }
 
-.weather-app-wrapper {
-  margin: 50px auto;
-  max-width: 800px;
+.coder-info {
+  opacity: 60%;
 }
 
-.weather-app {
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 2px;
-  padding: 20px;
+.col-12 {
+  padding: 0;
+}
+
+.current-emoji {
+  font-size: 100px;
+  margin: -40px auto -30px;
+  text-align: center;
+}
+
+.current-extra {
+  color: #42a5f5;
+  padding: 0;
+  margin: 48px 18px 0 0;
+}
+
+.current-extra ul {
+  text-align: right;
 }
 
 .current-location {
@@ -93,16 +85,7 @@ ul {
   padding-right: 0;
 }
 
-.current-emoji {
-  font-size: 100px;
-  margin: -40px auto -30px;
-  text-align: center;
-}
-
-.description {
-  font-size: 9px;
-  margin: 0 auto;
-  opacity: 60%;
+.current-state ul {
   text-align: center;
 }
 
@@ -115,29 +98,52 @@ ul {
   text-align: center;
 }
 
-.current-specify {
-  margin-right: -50px;
+.description {
+  font-size: 9px;
+  margin: 0 auto;
+  opacity: 60%;
+  text-align: center;
+}
+
+.emoji {
+  font-size: 55px;
   padding: 0;
 }
 
-.temp-unit,
-.thin-line {
-  font-size: 25px;
+.five-days {
+  text-align: center;
 }
 
-.temp-unit {
-  color: #146ec5;
-  text-decoration: none;
+.five-days .emoji {
+  margin: -23px 0 -17px;
+  padding-right: 3px;
+  text-align: right;
+}
+
+.five-days .max {
+  color: #42a5f5;
+  margin-top: -4px;
+  padding-left: 3px;
+  text-align: left;
+}
+
+.five-days .min {
+  margin-top: -6px;
+  padding: 0 9px 0 15px;
+}
+
+.five-days > .col {
+  border-radius: 20px;
   transition: all 150ms ease-in-out;
 }
 
-.temp-unit:hover {
-  text-decoration: underline;
+.five-days > .col:hover {
+  background: rgba(66, 165, 245, 0.2);
 }
 
-.thin-line {
-  font-weight: 100;
-  opacity: 45%;
+.max {
+  font-size: 42px;
+  padding: 0;
 }
 
 .max-and-min {
@@ -151,52 +157,46 @@ ul {
   margin-bottom: 0;
 }
 
-.current-extra {
-  color: #42a5f5;
-  padding: 0;
-  margin: 48px 18px 0 0;
+.min {
+  opacity: 45%;
 }
 
-.col-12 {
-  padding: 0;
+.temp-unit {
+  color: #146ec5;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+}
+
+.temp-unit:hover {
+  text-decoration: underline;
+}
+
+.temp-unit,
+.thin-line {
+  font-size: 25px;
+}
+
+.thin-line {
+  font-weight: 100;
+  opacity: 45%;
 }
 
 .tomorrow {
   border-left: 3px solid rgba(66, 165, 245, 0.25);
   color: #5a6275;
-  padding: 0 60px 0 45px;
   text-align: center;
+}
+
+.tomorrow .description {
+  margin-top: -3px;
 }
 
 .tomorrow .emoji {
   margin: -23px -5px -12px -17px;
 }
 
-.emoji {
-  font-size: 55px;
-  padding: 0;
-}
-
-.five-days .emoji {
-  margin: -23px 0 -17px;
-  padding-right: 3px;
-  text-align: right;
-}
-
 .tomorrow .max {
   margin: -4px 0 0 -9px;
-}
-
-.max {
-  font-size: 42px;
-  padding: 0;
-}
-
-.five-days .max {
-  color: #42a5f5;
-  margin-top: -4px;
-  padding-left: 3px;
-  text-align: left;
 }
 
 .tomorrow .min {
@@ -205,32 +205,27 @@ ul {
   text-align: left;
 }
 
-.min {
-  opacity: 45%;
+.updated {
+  color: #42a5f5;
+  display: block;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1;
+  padding-right: 10px;
+  text-align: right;
 }
 
-.five-days .min {
-  margin-top: -6px;
-  padding: 0 9px 0 15px;
+.weather-app {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  padding: 20px;
 }
 
-.tomorrow .description {
-  margin-top: -3px;
-}
-
-.five-days {
-  text-align: center;
+.weather-app-wrapper {
+  margin: 50px auto;
+  max-width: 800px;
 }
 
 .what-day {
   color: #5a6275;
-}
-
-.five-days > .col {
-  border-radius: 20px;
-  transition: all 150ms ease-in-out;
-}
-
-.five-days > .col:hover {
-  background: rgba(66, 165, 245, 0.2);
 }
