@@ -15,11 +15,6 @@ h5 {
   text-align: right;
 }
 
-small {
-  display: block;
-  opacity: 60%;
-}
-
 input[type="search"] {
   border: 2px solid #146ec5;
   border-radius: 2px;
@@ -42,6 +37,20 @@ hr {
 ul {
   list-style: none;
   padding: 0;
+}
+
+.updated {
+  color: #42a5f5;
+  display: block;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.coder-info {
+  opacity: 60%;
 }
 
 .current-state ul {

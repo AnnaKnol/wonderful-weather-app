@@ -1,4 +1,5 @@
-function updateTime(now) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -8,22 +9,17 @@ function updateTime(now) {
     "Friday",
     "Saturday",
   ];
-  let day = now.getDay();
-  let hours = now.getHours();
+  let day = date.getDay();
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = now.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
   return `${days[day]} ${hours}:${minutes}`;
 }
-
-let dateAndTime = document.querySelector("h5");
-dateAndTime.innerHTML = updateTime(new Date());
-
-//show current temperature
 
 let currentEmojiElement = document.querySelector(".current-emoji img");
 let currentDescriptionElement = document.querySelector(
@@ -49,6 +45,8 @@ let minInSixDaysElement = document.querySelector("#min_in_six_days");
 
 function showCurrentWeather(response) {
   console.log(response.data);
+  let dateAndTime = document.querySelector("h5");
+  dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
   let cityName = document.querySelector("h1");
   cityName.innerHTML = response.data.name;
 
