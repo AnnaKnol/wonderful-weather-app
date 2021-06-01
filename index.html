@@ -49,7 +49,7 @@
           <h5>Friday 12:50</h5>
           <br />
           <div class="row">
-            <div class="col-2 current-state">
+            <div class="col current-state">
               <ul>
                 <li class="current-emoji">
                   <img
@@ -60,28 +60,29 @@
                 <li class="description">Bit good, mostly meh...</li>
               </ul>
             </div>
-            <div class="col-2 current-temperature">
-              11
-
-              <a href="#" class="temp-unit celsius">°C</a>
+            <div class="col-4 current">
+              <span class="current-temperature">11</span
+              ><a href="#" class="temp-unit celsius">°C</a>
               <span class="thin-line">|</span>
               <a href="#" class="temp-unit fahrenheit">°F</a>
             </div>
-            <div class="col-2 max-and-min">
-              <p>
-                <strong><span id="max_today">12</span>°</strong>/<span
-                  id="min_today"
-                  >3</span
-                >°
-              </p>
+            <div class="col-1 max-and-min">
+              <strong><span id="max_today">12</span>°</strong>/<span
+                id="min_today"
+                >3</span
+              >°
             </div>
-            <div class="col-3 current-extra">
+            <div class="col current-extra">
               <ul>
                 <li>Humidity: <span id="humidity">61</span>%</li>
                 <li>Feeling temperature: <span id="feeling_temp">10</span>°</li>
+                <li>Wind speed: <span id="wind_speed">3</span> km/h</li>
+                <li id="precipitation">
+                  Precipitation: <span id="precipitation_number">33</span> mm
+                </li>
               </ul>
             </div>
-            <div class="col tomorrow">
+            <div class="col-2 tomorrow">
               <ul>
                 <li><h4>Tomorrow</h4></li>
                 <li>
