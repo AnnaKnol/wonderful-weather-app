@@ -75,7 +75,6 @@ function showIndexWeather() {
 
   axios.get(apiUrl).then(showCurrentWeather);
 }
-showIndexWeather();
 
 function showCityWeather(event) {
   event.preventDefault();
@@ -95,8 +94,6 @@ let searchInput = document.querySelector("#type_city");
 
 searchForm.addEventListener("submit", showCityWeather);
 
-//bonus point: show current location (and its weather)
-
 function determinePosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -109,50 +106,24 @@ function determinePosition(position) {
 
 function updateCurrentLocation(event) {
   event.preventDefault();
-  dateAndTime.innerHTML = updateTime(new Date());
-
   navigator.geolocation.getCurrentPosition(determinePosition);
 }
 
 let currentLocationForm = document.querySelector("#current_location_form");
 currentLocationForm.addEventListener("submit", updateCurrentLocation);
 
+showIndexWeather();
+
 //bonus feature: fake fahrenheit
 
 // function convertCelsius(event) {
 //   event.preventDefault();
-
-//   maxTomorrowElement.innerHTML = "14";
-//   minTomorrowElement.innerHTML = "4";
-//   maxInTwoDaysElement.innerHTML = "14";
-//   minInTwoDaysElement.innerHTML = "5";
-//   maxInThreeDaysElement.innerHTML = "19";
-//   minInThreeDaysElement.innerHTML = "5";
-//   maxInFourDaysElement.innerHTML = "16";
-//   minInFourDaysElement.innerHTML = "5";
-//   maxInFiveDaysElement.innerHTML = "12";
-//   minInFiveDaysElement.innerHTML = "2";
-//   maxInSixDaysElement.innerHTML = "5";
-//   minInSixDaysElement.innerHTML = "-1";
 // }
 // let celsiusLink = document.querySelector(".celsius");
 // celsiusLink.addEventListener("click", convertCelsius);
 
 // function convertFahrenheit(event) {
 //   event.preventDefault();
-//   //something about changing the units in the api-url to imperial
-//   maxTomorrowElement.innerHTML = "57";
-//   minTomorrowElement.innerHTML = "39";
-//   maxInTwoDaysElement.innerHTML = "57";
-//   minInTwoDaysElement.innerHTML = "41";
-//   maxInThreeDaysElement.innerHTML = "66";
-//   minInThreeDaysElement.innerHTML = "41";
-//   maxInFourDaysElement.innerHTML = "61";
-//   minInFourDaysElement.innerHTML = "41";
-//   maxInFiveDaysElement.innerHTML = "54";
-//   minInFiveDaysElement.innerHTML = "36";
-//   maxInSixDaysElement.innerHTML = "41";
-//   minInSixDaysElement.innerHTML = "30";
 // }
 // let fahrenheitLink = document.querySelector(".fahrenheit");
 // fahrenheitLink.addEventListener("click", convertFahrenheit);
