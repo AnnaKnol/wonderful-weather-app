@@ -21,6 +21,75 @@ function formatDate(timestamp) {
   return `${days[day]} ${hours}:${minutes}`;
 }
 
+function showCurrentWeather(response) {
+  let dateAndTime = document.querySelector("h5");
+  dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
+  let cityName = document.querySelector("h1");
+  cityName.innerHTML = response.data.name;
+
+  let iconCode = response.data.weather[0].icon;
+  let currentDescription = response.data.weather[0].description;
+  let currentTemperature = Math.round(response.data.main.temp);
+  let maxToday = Math.round(response.data.main.temp_max);
+  let minToday = Math.round(response.data.main.temp_min);
+  let humidity = response.data.main.humidity;
+  let feelingTemp = Math.round(response.data.main.feels_like);
+
+  let bodyElement = document.querySelector("body");
+  if (iconCode[2] === "d") {
+    bodyElement.classList.add("day");
+    bodyElement.classList.remove("night");
+  } else {
+    bodyElement.classList.add("night");
+    bodyElement.classList.remove("day");
+  }
+
+  currentEmojiElement.src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  currentDescriptionElement.innerHTML = currentDescription;
+  currentTemperatureElement.innerHTML = currentTemperature;
+  maxTodayElement.innerHTML = maxToday;
+  minTodayElement.innerHTML = minToday;
+  humidityElement.innerHTML = humidity;
+  feelingTempElement.innerHTML = feelingTemp;
+}
+
+function showIndexWeather() {
+  let city = "Brussels";
+  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(showCurrentWeather);
+}
+
+function showCityWeather(event) {
+  event.preventDefault();
+
+  let searchInput = document.querySelector("#type_city");
+  let city = searchInput.value;
+  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(showCurrentWeather);
+  searchInput.value = "";
+}
+
+function determinePosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(showCurrentWeather);
+}
+
+function updateCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(determinePosition);
+}
+
 let currentEmojiElement = document.querySelector(".current-emoji img");
 let currentDescriptionElement = document.querySelector(
   ".current-state .description"
@@ -43,71 +112,8 @@ let minInFiveDaysElement = document.querySelector("#min_in_five_days");
 let maxInSixDaysElement = document.querySelector("#max_in_six_days");
 let minInSixDaysElement = document.querySelector("#min_in_six_days");
 
-function showCurrentWeather(response) {
-  console.log(response.data);
-  let dateAndTime = document.querySelector("h5");
-  dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
-  let cityName = document.querySelector("h1");
-  cityName.innerHTML = response.data.name;
-
-  let iconCode = response.data.weather[0].icon;
-  let currentDescription = response.data.weather[0].description;
-  let currentTemperature = Math.round(response.data.main.temp);
-  let maxToday = Math.round(response.data.main.temp_max);
-  let minToday = Math.round(response.data.main.temp_min);
-  let humidity = response.data.main.humidity;
-  let feelingTemp = Math.round(response.data.main.feels_like);
-
-  currentEmojiElement.src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
-  currentDescriptionElement.innerHTML = currentDescription;
-  currentTemperatureElement.innerHTML = currentTemperature;
-  maxTodayElement.innerHTML = maxToday;
-  minTodayElement.innerHTML = minToday;
-  humidityElement.innerHTML = humidity;
-  feelingTempElement.innerHTML = feelingTemp;
-}
-
-function showIndexWeather() {
-  let city = "Brussels";
-  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
-  let unit = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(showCurrentWeather);
-}
-
-function showCityWeather(event) {
-  event.preventDefault();
-  dateAndTime.innerHTML = updateTime(new Date());
-
-  let city = searchInput.value;
-  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
-  let unit = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(showCurrentWeather);
-  searchInput.value = "";
-}
-
 let searchForm = document.querySelector("#search_form");
-let searchInput = document.querySelector("#type_city");
-
 searchForm.addEventListener("submit", showCityWeather);
-
-function determinePosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
-  let unit = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(showCurrentWeather);
-}
-
-function updateCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(determinePosition);
-}
 
 let currentLocationForm = document.querySelector("#current_location_form");
 currentLocationForm.addEventListener("submit", updateCurrentLocation);

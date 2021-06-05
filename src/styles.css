@@ -1,3 +1,11 @@
+body.day {
+  background-color: #f2f9ff;
+}
+
+body.night {
+  background-color: rgba(73, 72, 74, 0.9);
+}
+
 input[type="search"] {
   border: 2px solid #146ec5;
   border-radius: 2px;
@@ -213,6 +221,7 @@ ul {
 }
 
 .weather-app {
+  background-color: rgba(255, 255, 255, 0.92);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
   border-radius: 2px;
   padding: 20px;
