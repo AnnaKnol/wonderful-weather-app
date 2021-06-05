@@ -22,6 +22,7 @@ function formatDate(timestamp) {
 }
 
 function showCurrentWeather(response) {
+  console.log(response.data);
   let dateAndTime = document.querySelector("h5");
   dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
   let cityName = document.querySelector("h1");
@@ -34,6 +35,13 @@ function showCurrentWeather(response) {
   let minToday = Math.round(response.data.main.temp_min);
   let humidity = response.data.main.humidity;
   let feelingTemp = Math.round(response.data.main.feels_like);
+  let windSpeed = Math.round(response.data.wind.speed);
+
+  if (response.data.rain["1h"] !== undefined) {
+    precipitationNumberElement.innerHTML = response.data.rain["1h"];
+  } else {
+    precipitationElement.innerHTML = "";
+  }
 
   let bodyElement = document.querySelector("body");
   if (iconCode[2] === "d") {
@@ -51,6 +59,7 @@ function showCurrentWeather(response) {
   minTodayElement.innerHTML = minToday;
   humidityElement.innerHTML = humidity;
   feelingTempElement.innerHTML = feelingTemp;
+  windSpeedElement.innerHTML = windSpeed;
 }
 
 function showIndexWeather() {
@@ -99,6 +108,11 @@ let maxTodayElement = document.querySelector("#max_today");
 let minTodayElement = document.querySelector("#min_today");
 let humidityElement = document.querySelector("#humidity");
 let feelingTempElement = document.querySelector("#feeling_temp");
+let windSpeedElement = document.querySelector("#wind_speed");
+let precipitationElement = document.querySelector("#precipitation");
+let precipitationNumberElement = document.querySelector(
+  "#precipitation_number"
+);
 let maxTomorrowElement = document.querySelector("#max_tomorrow");
 let minTomorrowElement = document.querySelector("#min_tomorrow");
 let maxInTwoDaysElement = document.querySelector("#max_in_two_days");
