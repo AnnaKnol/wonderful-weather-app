@@ -88,7 +88,14 @@ function showCityWeather(event) {
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
-  axios.get(apiUrl).then(showCurrentWeather);
+  axios
+    .get(apiUrl)
+    .then(showCurrentWeather)
+    .catch(function (error) {
+      alert(
+        "I'm so sorry 🙃. The placename you typed is either spelled incorrectly or not in our database. Please try typing it correctly or use another place in the area 📍"
+      );
+    });
 
   searchInput.value = "";
 }
