@@ -22,7 +22,7 @@ function formatDate(timestamp) {
 }
 
 function showCurrentWeather(response) {
-  // console.log(response.data);
+  console.log(response.data);
   let dateAndTime = document.querySelector("h5");
   dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
   let cityName = document.querySelector("h1");
@@ -35,7 +35,7 @@ function showCurrentWeather(response) {
   let minToday = Math.round(response.data.main.temp_min);
   let humidity = response.data.main.humidity;
   let feelingTemp = Math.round(response.data.main.feels_like);
-  let windSpeed = Math.round(response.data.wind.speed);
+  let windSpeed = Math.round(response.data.wind.speed * 3.6);
 
   if (response.data.rain === undefined) {
     precipitationElement.innerHTML = "";
