@@ -73,7 +73,7 @@ ul {
   padding: 0;
 }
 
-.current-emoji img {
+.current-icon img {
   margin: -5px auto -15px;
 }
 
@@ -104,7 +104,7 @@ ul {
   color: #146ec5;
   font-size: 120px;
   line-height: 91px;
-  margin-right: 5px;
+  margin-right: 3px;
   padding: 0;
   text-align: center;
 }
@@ -168,13 +168,26 @@ ul {
 }
 
 .temp-unit {
-  color: #146ec5;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
   text-decoration: none;
   transition: all 150ms ease-in-out;
 }
 
+.current .active {
+  color: #146ec5;
+  cursor: default;
+  text-decoration: none;
+}
+
 .temp-unit:hover {
+  color: rgba(0, 0, 0, 0.3);
   text-decoration: underline;
+}
+
+.current .active:hover {
+  color: #146ec5;
+  text-decoration: none;
 }
 
 .temp-unit,
