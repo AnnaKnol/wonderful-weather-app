@@ -30,7 +30,7 @@ function showCurrentWeather(response) {
   let cityName = document.querySelector("h1");
   cityName.innerHTML = response.data.name;
 
-  displayForecast();
+  getForecast(response.data.coord);
 
   celsiusTemperature = response.data.main.temp;
   celsiusFeelingTemperature = response.data.main.feels_like;
@@ -71,7 +71,15 @@ function showCurrentWeather(response) {
   windSpeedElement.innerHTML = windSpeed;
 }
 
-function displayForecast() {
+function getForecast(coordinates) {
+  let apiKey = "39b9fa38fab84a614d2c18fbd5c314dd";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector(".forecast");
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
