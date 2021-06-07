@@ -64,10 +64,6 @@ ul {
   opacity: 60%;
 }
 
-.col-12 {
-  padding: 0;
-}
-
 .current {
   margin-right: -40px;
   padding: 0;
@@ -116,55 +112,42 @@ ul {
   text-align: center;
 }
 
-.emoji {
-  font-size: 55px;
-  padding: 0;
-}
-
-.five-days {
+.forecast {
   text-align: center;
 }
 
-.five-days .emoji {
-  margin: -23px 0 -17px;
-  padding-right: 3px;
-  text-align: right;
+.forecast-icon {
+  margin: -38px -20px -17px -15px;
 }
 
-.five-days .max {
+.forecast-icon-max {
   color: #42a5f5;
+}
+
+.forecast-max {
+  font-size: 42px;
   margin-top: -4px;
   padding-left: 3px;
-  text-align: left;
 }
 
-.five-days .min {
+.forecast-min {
   margin-top: -6px;
-  padding: 0 9px 0 15px;
+  opacity: 45%;
 }
 
-.five-days > .col {
+.forecast .col {
   border-radius: 20px;
   transition: all 150ms ease-in-out;
 }
 
-.five-days > .col:hover {
+.forecast .col:hover {
   background: rgba(66, 165, 245, 0.2);
-}
-
-.max {
-  font-size: 42px;
-  padding: 0;
 }
 
 .max-and-min {
   font-size: 20px;
   opacity: 45%;
   padding: 0;
-}
-
-.min {
-  opacity: 45%;
 }
 
 .temp-unit {
@@ -209,18 +192,21 @@ ul {
   text-align: center;
 }
 
-.tomorrow .emoji {
+.tomorrow-icon {
+  font-size: 40px;
   margin: -20px 0px -20px -20px;
-}
-
-.tomorrow .max {
-  margin: -4px 5px 0 -15px;
-}
-
-.tomorrow .min {
-  margin: 26px -28px 0 -6px;
   padding: 0;
-  text-align: left;
+}
+
+.tomorrow-max {
+  font-size: 42px;
+  margin: -4px 5px 0 -15px;
+  padding: 0;
+}
+
+.tomorrow-min {
+  margin: -5px auto 0;
+  text-align: center;
 }
 
 .updated {
@@ -245,6 +231,6 @@ ul {
   max-width: 800px;
 }
 
-.what-day {
+.forecast-date {
   color: #5a6275;
 }

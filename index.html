@@ -85,111 +85,23 @@
                 <li><h4>Tomorrow</h4></li>
                 <li>
                   <div class="row">
-                    <div class="col emoji">
+                    <div class="col tomorrow-icon">
                       <img
                         src="http://openweathermap.org/img/wn/10d@2x.png"
                         alt="tomorrow-weather-icon"
                       />
                     </div>
-                    <div class="col max">
-                      <span id="max_tomorrow">14</span>°
+                    <div class="col tomorrow-max">
+                      <span>14°</span>
                     </div>
                   </div>
                 </li>
-                <li><span id="min_tomorrow">4</span>°</li>
+                <li class="tomorrow-min">4°</li>
               </ul>
             </div>
           </div>
           <hr />
-          <div class="row five-days">
-            <div class="col in-two-days">
-              <div class="row what-day"><h4>Sun</h4></div>
-              <div class="row">
-                <div class="col-6 emoji">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="in-two-days-weather-icon"
-                  />
-                </div>
-                <div class="col-6 max">
-                  <span id="max_in_two_days">14</span>°
-                </div>
-              </div>
-              <div class="row">
-                <div class="col min"><span id="min_in_two_days">5</span>°</div>
-              </div>
-            </div>
-            <div class="col in-three-days">
-              <div class="row what-day"><h4>Mon</h4></div>
-              <div class="row">
-                <div class="col-6 emoji">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="in-three-days-weather-icon"
-                  />
-                </div>
-                <div class="col-6 max">
-                  <span id="max_in_three_days">19</span>°
-                </div>
-              </div>
-              <div class="row">
-                <div class="col min">
-                  <span id="min_in_three_days">5</span>°
-                </div>
-              </div>
-            </div>
-            <div class="col in-four-days">
-              <div class="row what-day"><h4>Tue</h4></div>
-              <div class="row">
-                <div class="col-6 emoji">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="in-four-days-weather-icon"
-                  />
-                </div>
-                <div class="col-6 max">
-                  <span id="max_in_four_days">16</span>°
-                </div>
-              </div>
-              <div class="row">
-                <div class="col min"><span id="min_in_four_days">5</span>°</div>
-              </div>
-            </div>
-            <div class="col in-five-days">
-              <div class="row what-day"><h4>Wed</h4></div>
-              <div class="row">
-                <div class="col-6 emoji">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="in-five-days-weather-icon"
-                  />
-                </div>
-                <div class="col-6 max">
-                  <span id="max_in_five_days">12</span>°
-                </div>
-              </div>
-              <div class="row">
-                <div class="col min"><span id="min_in_five_days">2</span>°</div>
-              </div>
-            </div>
-            <div class="col in-six-days">
-              <div class="row what-day"><h4>Thu</h4></div>
-              <div class="row">
-                <div class="col-6 emoji">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="in-six-days-weather-icon"
-                  />
-                </div>
-                <div class="col-6 max">
-                  <span id="max_in_six_days">5</span>°
-                </div>
-              </div>
-              <div class="row">
-                <div class="col min"><span id="min_in_six_days">-1</span>°</div>
-              </div>
-            </div>
-          </div>
+          <div class="forecast"></div>
         </div>
         <small class="coder-info"
           >Coded by Anna Knol, open-source on

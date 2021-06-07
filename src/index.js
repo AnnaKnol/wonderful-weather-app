@@ -25,11 +25,12 @@ function formatDate(timestamp) {
 }
 
 function showCurrentWeather(response) {
-  console.log(response.data);
   let dateAndTime = document.querySelector("h5");
   dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
   let cityName = document.querySelector("h1");
   cityName.innerHTML = response.data.name;
+
+  displayForecast();
 
   celsiusTemperature = response.data.main.temp;
   celsiusFeelingTemperature = response.data.main.feels_like;
@@ -68,6 +69,34 @@ function showCurrentWeather(response) {
   humidityElement.innerHTML = humidity;
   feelingTempElement.innerHTML = feelingTemp;
   windSpeedElement.innerHTML = windSpeed;
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+                <div class="forecast-date"><h4>${day}</h4></div>
+                <div class="forecast-icon-max">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="in-two-days-weather-icon"
+                    class="forecast-icon"
+                    width="90"
+                  />
+                  <span class="forecast-max">14°</span>
+                </div>
+                <div class="forecast-min">5°</div>
+              </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function showIndexWeather() {
@@ -160,18 +189,6 @@ let humidityElement = document.querySelector("#humidity");
 let feelingTempElement = document.querySelector("#feeling_temp");
 let windSpeedElement = document.querySelector("#wind_speed");
 let precipitationElement = document.querySelector("#precipitation");
-// let maxTomorrowElement = document.querySelector("#max_tomorrow");
-// let minTomorrowElement = document.querySelector("#min_tomorrow");
-// let maxInTwoDaysElement = document.querySelector("#max_in_two_days");
-// let minInTwoDaysElement = document.querySelector("#min_in_two_days");
-// let maxInThreeDaysElement = document.querySelector("#max_in_three_days");
-// let minInThreeDaysElement = document.querySelector("#min_in_three_days");
-// let maxInFourDaysElement = document.querySelector("#max_in_four_days");
-// let minInFourDaysElement = document.querySelector("#min_in_four_days");
-// let maxInFiveDaysElement = document.querySelector("#max_in_five_days");
-// let minInFiveDaysElement = document.querySelector("#min_in_five_days");
-// let maxInSixDaysElement = document.querySelector("#max_in_six_days");
-// let minInSixDaysElement = document.querySelector("#min_in_six_days");
 
 let celsiusTemperature = null;
 let celsiusFeelingTemperature = null;
