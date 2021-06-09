@@ -40,10 +40,10 @@ function showCurrentWeather(response) {
 
   getForecast(response.data.coord);
 
-  celsiusTemperature = response.data.main.temp;
-  celsiusFeelingTemperature = response.data.main.feels_like;
-  celsiusMaxTemperature = response.data.main.temp_max;
-  celsiusMinTemperature = response.data.main.temp_min;
+  let celsiusTemperature = response.data.main.temp;
+  let celsiusFeelingTemperature = response.data.main.feels_like;
+  let celsiusMaxTemperature = response.data.main.temp_max;
+  let celsiusMinTemperature = response.data.main.temp_min;
 
   let iconCode = response.data.weather[0].icon;
   let currentDescription = response.data.weather[0].description;
@@ -110,7 +110,7 @@ function displayForecast(response) {
                 )}</h4></div>
                 <div class="forecast-icon-max">
                   <img
-                    src="http://openweathermap.org/img/wn/${
+                    src="https://openweathermap.org/img/wn/${
                       forecastDay.weather[0].icon
                     }@2x.png"
                     alt="in-${index}-days-weather-icon"
@@ -178,41 +178,6 @@ function updateCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(determinePosition);
 }
 
-function fahrenheitConversion(temperature) {
-  return (temperature * 9) / 5 + 32;
-}
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-
-  let fahrenheitTemperature = fahrenheitConversion(celsiusTemperature);
-  let fahrenheitFeelingTemperature = fahrenheitConversion(
-    celsiusFeelingTemperature
-  );
-  let fahrenheitMaxTemperature = fahrenheitConversion(celsiusMaxTemperature);
-  let fahrenheitMinTemperature = fahrenheitConversion(celsiusMinTemperature);
-
-  currentTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  feelingTempElement.innerHTML = Math.round(fahrenheitFeelingTemperature);
-  maxTodayElement.innerHTML = Math.round(fahrenheitMaxTemperature);
-  minTodayElement.innerHTML = Math.round(fahrenheitMinTemperature);
-
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-
-  currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
-  feelingTempElement.innerHTML = Math.round(celsiusFeelingTemperature);
-  maxTodayElement.innerHTML = Math.round(celsiusMaxTemperature);
-  minTodayElement.innerHTML = Math.round(celsiusMinTemperature);
-
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-}
-
 let currentIconElement = document.querySelector(".current-icon img");
 let currentDescriptionElement = document.querySelector(".description");
 let currentTemperatureElement = document.querySelector(".current-temperature");
@@ -223,21 +188,10 @@ let feelingTempElement = document.querySelector("#feeling_temp");
 let windSpeedElement = document.querySelector("#wind_speed");
 let precipitationElement = document.querySelector("#precipitation");
 
-let celsiusTemperature = null;
-let celsiusFeelingTemperature = null;
-let celsiusMaxTemperature = null;
-let celsiusMinTemperature = null;
-
 let searchForm = document.querySelector("#search_form");
 searchForm.addEventListener("submit", showCityWeather);
 
 let currentLocationForm = document.querySelector("#current_location_form");
 currentLocationForm.addEventListener("submit", updateCurrentLocation);
-
-let fahrenheitLink = document.querySelector("#fahrenheit_link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius_link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 showIndexWeather();

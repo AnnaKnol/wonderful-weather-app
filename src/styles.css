@@ -151,36 +151,8 @@ ul {
 }
 
 .temp-unit {
-  color: rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 150ms ease-in-out;
-}
-
-.current .active {
   color: #146ec5;
-  cursor: default;
-  text-decoration: none;
-}
-
-.temp-unit:hover {
-  color: rgba(0, 0, 0, 0.3);
-  text-decoration: underline;
-}
-
-.current .active:hover {
-  color: #146ec5;
-  text-decoration: none;
-}
-
-.temp-unit,
-.thin-line {
   font-size: 25px;
-}
-
-.thin-line {
-  font-weight: 100;
-  opacity: 45%;
 }
 
 .tomorrow {
@@ -194,7 +166,7 @@ ul {
 
 .tomorrow-icon {
   font-size: 40px;
-  margin: -35px -15px -20px -30px;
+  margin: -40px -10px -20px -35px;
   padding: 0;
 }
 
