@@ -24,6 +24,14 @@ function formatDate(timestamp) {
   return `${days[day]} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = date.getDay();
+
+  return days[day];
+}
+
 function showCurrentWeather(response) {
   let dateAndTime = document.querySelector("h5");
   dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
@@ -50,7 +58,7 @@ function showCurrentWeather(response) {
   if (response.data.rain === undefined) {
     precipitationElement.innerHTML = "";
   } else {
-    precipitationElement.innerHTML = `Precipitation: ${response.data.rain["1h"]}mm`;
+    precipitationElement.innerHTML = `Precipitation: ${response.data.rain["1h"]} mm`;
   }
 
   if (iconCode[2] === "d") {
@@ -79,28 +87,45 @@ function getForecast(coordinates) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
+
+  let tomorrowIconElement = document.querySelector(".tomorrow-icon");
+  let tomorrowMaxElement = document.querySelector(".tomorrow-max");
+  let tomorrowMinElement = document.querySelector(".tomorrow-min");
+
+  tomorrowIconElement.src = `http://openweathermap.org/img/wn/${forecast[1].weather[0].icon}@2x.png`;
+  tomorrowMaxElement.innerHTML = `${Math.round(forecast[1].temp.max)}°`;
+  tomorrowMinElement.innerHTML = `${Math.round(forecast[1].temp.min)}°`;
+
   let forecastElement = document.querySelector(".forecast");
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-                <div class="forecast-date"><h4>${day}</h4></div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 1 && index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+                <div class="forecast-date"><h4>${formatDay(
+                  forecastDay.dt * 1000
+                )}</h4></div>
                 <div class="forecast-icon-max">
                   <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="in-two-days-weather-icon"
+                    src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png"
+                    alt="in-${index}-days-weather-icon"
                     class="forecast-icon"
                     width="90"
                   />
-                  <span class="forecast-max">14°</span>
+                  <span class="forecast-max">${Math.round(
+                    forecastDay.temp.max
+                  )}°</span>
                 </div>
-                <div class="forecast-min">5°</div>
+                <div class="forecast-min">${Math.round(
+                  forecastDay.temp.min
+                )}°</div>
               </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
 
@@ -130,7 +155,7 @@ function showCityWeather(event) {
     .then(showCurrentWeather)
     .catch(function (error) {
       alert(
-        "I'm so sorry 🙃. The placename you typed is either spelled incorrectly or not in our database. Please try typing it correctly or use another place in the area 📍"
+        "Please, try typing it correctly or use another place in the area 📍 👍"
       );
     });
 
